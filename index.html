@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Reviews</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Product Reviews</h1>
+    <a href="{{ url_for('add_review') }}">Add a Review</a>
+    <ul>
+        {% for review in reviews %}
+        <li>
+            <h2>{{ review.product_name }}</h2>
+            <p>Reviewed by: {{ review.reviewer_name }}</p>
+            <p>Rating: {{ review.rating }}</p>
+            <p>{{ review.review_text }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
